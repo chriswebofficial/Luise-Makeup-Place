@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const About: React.FC = () => {
   return (
@@ -82,18 +83,23 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* CALL TO ACTION */}
-      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
-        <h2 className="text-3xl font-semibold mb-6  text-pink-600">
-          Ready to Feel Your Best?
-        </h2>
-        <p className="text-lg mb-8">
-          Book your session today and let Luise bring your beauty vision to life.
-        </p>
-        <button className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full transition">
-          Contact Us
-        </button>
-      </section>
+ 
+{/* CALL TO ACTION */}
+<section className="max-w-6xl mx-auto px-6 py-20 text-center">
+  <h2 className="text-3xl font-semibold mb-6 text-pink-600">
+    Ready to Feel Your Best?
+  </h2>
+  <p className="text-lg mb-8">
+    Book your session today and let Luise bring your beauty vision to life.
+  </p>
+  <HashLink 
+    smooth 
+    to="/#contact" 
+    className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full transition"
+  >
+    Contact Us
+  </HashLink>
+</section>
     </div>
   );
 };
