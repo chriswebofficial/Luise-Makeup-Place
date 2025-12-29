@@ -86,7 +86,7 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold text-pink-600">
-            Lulu Beauty
+            Luise Beauty
           </Link>
 
           {/* Desktop Menu */}

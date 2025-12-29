@@ -27,12 +27,12 @@ const Home: React.FC = () => {
         </p>
 
         {/* Demo Button */}
-        <button
-          onClick={() => alert("Demo website — booking is disabled")}
-          className="bg-pink-600 text-white px-6 py-3 rounded hover:bg-pink-700 transition"
-        >
-          Book Now
-        </button>
+           <a
+              href="/booking"
+              className="inline-block bg-pink-600 text-white px-6 py-3 rounded hover:bg-pink-700 transition"
+            >
+              Book Now
+            </a>
       </section>
         
       <section id="services">
@@ -57,7 +57,7 @@ const Home: React.FC = () => {
   <div className="max-w-7xl mx-auto px-4 text-center">
     <h2 className="text-4xl font-bold text-pink-600 mb-4">Master Class</h2>
     <p className="text-gray-700 mb-12">
-      Join our exclusive Master Classes to learn professional makeup techniques from Lulu herself. Enhance your skills and become a makeup pro!
+      Join our exclusive Master Classes to learn professional makeup techniques from Luise herself. Enhance your skills and become a makeup pro!
     </p>
 
     <div className="grid md:grid-cols-3 gap-8">

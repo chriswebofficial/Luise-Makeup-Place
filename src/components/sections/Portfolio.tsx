@@ -161,7 +161,7 @@ const Portfolio: React.FC = () => {
           Our Portfolio
         </h1>
         <p className="text-lg max-w-2xl mx-auto">
-          A collection of our on-screen, bridal, and fashion makeup looks
+          A collection of our on screen, bridal, and fashion makeup looks
           crafted to enhance beauty and confidence.
         </p>
       </div>
