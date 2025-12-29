@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  FaInstagram,
-  FaWhatsapp,
-  FaFacebook,
-  FaTiktok,
-} from "react-icons/fa";
+import { FaInstagram, FaWhatsapp, FaFacebook, FaTiktok } from "react-icons/fa";
 
-const Contact = () => {
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+const Contact: React.FC = () => {
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
@@ -19,14 +20,15 @@ const Contact = () => {
   const [error, setError] = useState(false);
   const [shake, setShake] = useState(false);
 
-  const handleChange = (e) => {
+  // Type the event
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
@@ -48,9 +50,7 @@ const Contact = () => {
       <div className="w-full max-w-4xl bg-white rounded-2xl shadow-lg p-8">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold text-pink-600">
-            Get in Touch
-          </h1>
+          <h1 className="text-3xl font-bold text-pink-600">Get in Touch</h1>
           <p className="text-gray-600 mt-2">
             Book a session or connect with us on social media 💄
           </p>
@@ -91,10 +91,7 @@ const Contact = () => {
 
             {/* Social Icons */}
             <div className="mt-6">
-              <h3 className="font-semibold text-gray-800 mb-3">
-                Follow Us
-              </h3>
-
+              <h3 className="font-semibold text-gray-800 mb-3">Follow Us</h3>
               <div className="flex gap-4 text-2xl text-pink-600">
                 <FaInstagram />
                 <FaWhatsapp />
@@ -110,9 +107,7 @@ const Contact = () => {
             className={`space-y-4 ${shake ? "animate-shake" : ""}`}
           >
             {error && (
-              <p className="text-red-500 text-sm">
-                Please fill in all fields
-              </p>
+              <p className="text-red-500 text-sm">Please fill in all fields</p>
             )}
 
             <div>
@@ -124,8 +119,7 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none
-                ${
+                className={`w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none ${
                   error && !formData.name
                     ? "border-red-500"
                     : "focus:ring-2 focus:ring-pink-400"
@@ -142,8 +136,7 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none
-                ${
+                className={`w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none ${
                   error && !formData.email
                     ? "border-red-500"
                     : "focus:ring-2 focus:ring-pink-400"
@@ -156,12 +149,11 @@ const Contact = () => {
                 Message
               </label>
               <textarea
-                rows="4"
+                rows={4}
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className={`w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none
-                ${
+                className={`w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none ${
                   error && !formData.message
                     ? "border-red-500"
                     : "focus:ring-2 focus:ring-pink-400"

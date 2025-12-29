@@ -5,8 +5,7 @@ import { HashLink } from "react-router-hash-link";
 interface Weather {
   temperature: number;
   windspeed: number;
-  [key: string]: any; // allows extra fields from API
-}
+};
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,13 +26,15 @@ const Navbar: React.FC = () => {
               `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
             );
             const data = await res.json();
-            const city = data.address.city || data.address.town || data.address.village || "";
-            const state = data.address.state || "";
-            const country = data.address.country || "";
+
+            const city: string = data.address.city || data.address.town || data.address.village || "";
+            const state: string = data.address.state || "";
+            const country: string = data.address.country || "";
+
             setLocation(
               `${city}${city && state ? ", " : ""}${state}${state && country ? ", " : ""}${country}`
             );
-          } catch (err) {
+          } catch {
             setLocation("Unknown Location");
           }
 
@@ -42,9 +43,9 @@ const Navbar: React.FC = () => {
             const weatherRes = await fetch(
               `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
             );
-            const weatherData = await weatherRes.json();
+            const weatherData: { current_weather: Weather } = await weatherRes.json();
             setWeather(weatherData.current_weather);
-          } catch (err) {
+          } catch {
             setWeather(null);
           }
         },
@@ -54,9 +55,9 @@ const Navbar: React.FC = () => {
             const weatherRes = await fetch(
               `https://api.open-meteo.com/v1/forecast?latitude=6.5244&longitude=3.3792&current_weather=true`
             );
-            const weatherData = await weatherRes.json();
+            const weatherData: { current_weather: Weather } = await weatherRes.json();
             setWeather(weatherData.current_weather);
-          } catch (err) {
+          } catch {
             setWeather(null);
           }
         }
@@ -132,7 +133,10 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-2xl">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-2xl"
+          >
             ☰
           </button>
         </div>
