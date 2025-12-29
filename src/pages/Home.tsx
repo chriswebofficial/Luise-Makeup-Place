@@ -27,12 +27,11 @@ const Home: React.FC = () => {
         </p>
 
         {/* Demo Button */}
-           <a
-              href="/booking"
+           <Link to={"/booking"}
               className="inline-block bg-pink-600 text-white px-6 py-3 rounded hover:bg-pink-700 transition"
             >
               Book Now
-            </a>
+            </Link>
       </section>
         
       <section id="services">

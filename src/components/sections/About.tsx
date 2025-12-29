@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const About: React.FC = () => {
   return (
@@ -16,11 +17,10 @@ const About: React.FC = () => {
             elegance, and self-expression. Every look is carefully crafted to
             enhance your natural beauty while matching your unique style.
           </p>
-          <a 
-          href="/booking"
+          <Link to={"/booking"}
            className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full transition">
             Book an Appointment
-          </a>
+          </Link>
         </div>
 
         {/* Image */}

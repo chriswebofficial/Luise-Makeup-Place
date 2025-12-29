@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const services = [
   {
     title: "On Screen",
@@ -42,12 +44,11 @@ const Services = () => {
               {service.price}
             </p>
 
-            <a
-              href="/booking"
+            <Link to={"/booking"}
               className="inline-block bg-pink-600 text-white px-6 py-3 rounded hover:bg-pink-700 transition"
             >
               Book Now
-            </a>
+            </Link>
           </div>
         ))}
       </div>
